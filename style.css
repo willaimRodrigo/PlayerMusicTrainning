@@ -1,0 +1,177 @@
+/* *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+}
+
+.player {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 400px;
+    width: 100%;
+    height: 500px;
+    margin: 0 10px;
+    box-shadow: 0 1px 10px green;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.logo {
+    font-size: 200px;
+}
+
+#musicName {
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 30px;
+}
+
+.controls button {
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}
+
+.controls i {
+    font-size: 60px;
+    padding: 5px;
+    border-radius: 50%;
+    background-color: #f7f7f7;
+    transition: all .2s;
+}
+
+.controls i:hover {
+    background-color: lightgray;
+}
+
+.time {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.time span {
+    font-size: 22px;
+    color: #333;
+}
+
+.footer {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.progress-bar {
+    height: 8px;
+    background-color: #ddd;
+    cursor: pointer;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+.progress {
+    height: 8px;
+    background-color: #333;
+    border-radius: 5px;
+    margin-top: 5px;
+} */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+  }
+  
+  main{
+    height: 100vh;
+    background: #F0F0F0;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  section{
+    width: 320px;
+    background: #F0F0F0;
+    padding: 32px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 8px 4px rgba(0, 0, 0, 0.25);
+  }
+  
+  h3{
+    color: #121212;
+    text-align: center;
+    font-size: 24px;
+  }
+  
+  p{
+    color: #262626;
+    opacity: 0.7;
+    text-align: center;
+    margin-top: 8px;
+  }
+  
+  .volume{
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .volume i{
+    color: #262626;
+    font-size: 20px;
+  }
+  
+  .player{
+    margin-block: 28px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .player button{
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .player button i{
+    color: #262626;
+    font-size: 24px;
+  }
+  
+  .progressBar {
+    height: 8px;
+    background-color: #121212;
+    border-radius: 4px;
+  }
+  
+  .progress{
+    height: 8px;
+    background-color: #505050;
+    border-radius: 4px;
+  }
+  
+  .musicTime{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+  }
+  
+  .musicTime span{
+    color: #262626;
+    opacity: 0.7;
+    font-size: 12px;
+  }
