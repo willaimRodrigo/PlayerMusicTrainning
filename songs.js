@@ -98,6 +98,5 @@ export default [
         src: './src/data/slowAv2/Toc Toc.mp3',
         name: 'Toc Toc',
         band: 'Verso e Prosa',
-    }
-
+    },
 ]

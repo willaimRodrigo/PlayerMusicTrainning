@@ -40,8 +40,53 @@
             <span class="duration">00:00</span>
           </div>
         </div>
+
+        <button class="config__modal">Config</button>
+        <label for="timeInput">Set Time (seconds):</label>
+        <input type="number" id="timeInput" value="">
+        <button class="toggle-timer">Go</button>
       </section>
     </main>
-    <script type="module" src="./script.js"></script>
+      
+    <dialog id="modalContainer" class="modal">
+      <div class="modal__section">
+        <audio id="player"></audio>
+      <section>
+        <button id="modalButtonClose">X</button>
+        <h3 class="musicName">Nome da musica</h3>
+        <p class="bandName">Banda</p>
+        <div class="volume">
+          <i class="ph ph-speaker-none"></i>
+          <input
+            type="range"
+            min="1"
+            max="100"
+            value="99"
+            class="volumeSlider"
+          />
+          <i class="ph ph-speaker-high"></i>
+        </div>
+        <div class="player">
+          <button class="prev"><i class="ph ph-rewind"></i></button>
+          <button class="play"><i class="ph ph-play"></i></button>
+          <button class="next"><i class="ph ph-fast-forward"></i></button>
+          <button class="random"><i class="ph ph-shuffle"></i></button>
+        </div>
+        <div>
+          <div class="progressBar">
+            <div class="progress"></div>
+          </div>
+          <div class="musicTime">
+            <span class="currentTime">00:00</span>
+            <span class="duration">00:00</span>
+          </div>
+        </div>
+
+        <label for="timeInput">Set Time (seconds):</label>
+        <input type="number" id="timeInput" value="">
+      </section>
+      </div>
+    </dialog>
+    <script type="module" src="./script.js" defer></script>
   </body>
 </html>
