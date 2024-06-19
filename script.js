@@ -118,26 +118,26 @@ function toggleTimer() {
     toggleTimerButton.textContent = isTimerActive ? 'Stop' : 'Go';
 }
 
-function handleModal() {
-    const buttonConfigModal = document.querySelector('.config__modal');
-    const modalContainer = document.querySelector('modalContainer');
+// function handleModal() {
+//     const buttonConfigModal = document.querySelector('.config__modal');
+//     const modalContainer = document.querySelector('modalContainer');
 
-    buttonConfigModal.addEventListener("click", () => {
-        modalContainer.showModal();
-    }); 
-}
+//     buttonConfigModal.addEventListener("click", () => {
+//         modalContainer.showModal();
+//     }); 
+// }
 
-function closeModal() {
-    const button = document.querySelector('modalButtonClose');
-    const modalContainer = document.querySelector('modalContainer');
+// function closeModal() {
+//     const button = document.querySelector('modalButtonClose');
+//     const modalContainer = document.querySelector('modalContainer');
 
-    button.addEventListener("click", () => {
-        modalContainer.close();
-    });
-}
+//     button.addEventListener("click", () => {
+//         modalContainer.close();
+//     });
+// }
 
-handleModal();
-closeModal();
+// handleModal();
+// closeModal();
 
 playPause.onclick = () => playPauseMusic();
 prev.onclick = () => prevNextMusic('prev');
