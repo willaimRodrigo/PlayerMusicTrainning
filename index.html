@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script type="module" src="./script.js" defer></script>
     <link rel="stylesheet" href="style.css" />
     <title>Document</title>
   </head>
@@ -12,6 +13,20 @@
     <main>
       <audio id="player1"></audio>
       <section id="playerSection1">
+        <div class="header">
+          <div class="timer__control">
+            <input type="number" class="timeInput" value="" placeholder="segundos">
+            <button class="toggle__timer">Go</button>
+          </div>
+  
+          <div>
+                <button class="cicle" data-cicle="preta">Preta</button>
+                <button class="cicle" data-cicle="azulAv">Azul Av</button>
+                <!-- <button class="cicle" data-cicle="azul">Azul</button>
+                <button class="cicle" data-cicle="branca">=> Branca</button> -->
+        </div>
+        </div>
+      
         <h3 class="musicName">Nome da musica</h3>
         <p class="bandName">Banda</p>
         <div class="volume">
@@ -42,15 +57,11 @@
         </div>
 
         <!-- <button class="config__modal">Config</button> -->
-        <label for="timeInput">Alerta para treinos (segundos) </label>
-        <input type="number" class="timeInput" value="">
-        <button class="toggle-timer">Go</button>
 
         <label for="musicSelect">Choose a music:</label>
         <select id="musicSelect" class="musicSelect"></select>
       </section>     
     </main>
-    
-    <script type="module" src="./script.js" defer></script>
+ 
   </body>
 </html>

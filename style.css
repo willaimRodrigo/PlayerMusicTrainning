@@ -214,6 +214,37 @@ body {
   position: relative;
 } */ 
 
-.playExam {
-  margin-top: 200px;
+.header {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
 }
+
+.cicleSelect {
+  height: 30px;
+}
+
+.timer__control {
+  display: flex; 
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.toggle__timer {
+  border-radius: 20px;
+  height: 30px;
+  width: 35px;
+}
+
+.timeInput {
+  width: 62px;
+  height: 30px;
+  border-radius: 5px;
+}
+
+.musicSelect {
+  width: 100%;
+  border-radius: 10px;
+  padding-left: 5px;
+}
+
