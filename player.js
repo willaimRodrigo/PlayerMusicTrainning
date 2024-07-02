@@ -4,6 +4,7 @@ export function initiPlayers(playerId, sectionId, songs) {
     const section = document.querySelector(`#${sectionId}`);
     const nameMusic = section.querySelector('.musicName');
     const bandName = section.querySelector('.bandName');
+
     const volumeSlider = section.querySelector('.volumeSlider');
 
     const random = section.querySelector('.random');
@@ -65,9 +66,13 @@ export function initiPlayers(playerId, sectionId, songs) {
         updateTime();
     }
 
-    function setVolume(){
-        player.volume = volumeSlider.value / 100;
+    function setVolume(volume){
+        player.volume = volume/ 100;
     }
+    
+    volumeSlider.addEventListener('input', () => {
+        setVolume(volumeSlider.value);
+    });
 
     function randomMusic() {
         let randomIndex = Math.floor(Math.random() * songs.length);
@@ -103,10 +108,51 @@ export function initiPlayers(playerId, sectionId, songs) {
         });
     }
 
+    // function populateMusicOptions() {
+    //     const music1Select = document.getElementById('music1');
+    //     const music2select = document.getElementById('music2');
+
+    //     music1Select.innerHTML = '';
+    //     music2select.innerHTML = '';
+
+    //     songs.forEach((song, index) => {
+    //         const option1 = document.createElement('option');
+    //         option1.value = index;
+    //         option1.textContent = `${song.name}`;
+    //         music1Select.appendChild(option1);
+
+    //         const option2 = document.createElement('option');
+    //         option2.value = index;
+    //         option2.textContent = `${song.name}`;
+    //         music2select.appendChild(option2);
+    //     });
+    // }
+
+    // document.getElementById('startPlayback').addEventListener('click', function() {
+    //     const music1Index = document.getElementById('music1').valeu;
+    //     const music2Index = document.getElementById('music2').value;
+
+    //     const music1Time = 75 * 1000;
+    //     const music2Time = 150 * 1000;
+
+    //     playPauseMusic(songs[music1Index].src, music1Time);
+    //     setTimeout(() => {
+    //         playPauseMusic(songs[music2Index].src, music2Time);
+    //     }, music1Time);
+    // });
+
+    // function playMusic(songSrc, duration) {
+    //     console.log(`Reproduzindo ${songSrc} por ${duration / 1000} segundos.`);
+    // }
+
+    // playMusic();
+    // populateMusicOptions();
+
+
     playPause.onclick = () => playPauseMusic();
     prev.onclick = () => prevNextMusic('prev');
     next.onclick = () => prevNextMusic();
-    volumeSlider.oninput = () => setVolume();
+    setVolume(30);
     random.onclick = () => randomMusic();
     player.ontimeupdate = () => updateTime();
     player.onended = () => prevNextMusic('next');

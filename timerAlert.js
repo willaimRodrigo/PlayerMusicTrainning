@@ -1,3 +1,5 @@
+
+
 export function alertTimer () {
     const toggleTimerButton = document.querySelector('.toggle__timer');
 
@@ -9,8 +11,9 @@ export function alertTimer () {
     function startTimer() {
 
                 const alertSound = new Audio(alertSoundUrl);
-                const timeInput = document.querySelector('.timeInput').value;
-                const countdounwTime = parseInt(timeInput) * 1000;
+                const minutesInput = document.querySelector('.minutesInput').value;
+                const secondsInput = document.querySelector('.secondsInput').value;
+                const countdounwTime = (parseInt(minutesInput) * 60 + parseInt(secondsInput)) * 1000;
 
                 timeInterval = setInterval(() => {
                     alertSound.currentTime = 0;

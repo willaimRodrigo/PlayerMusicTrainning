@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    <script type="module" src="./script.js" defer></script>
     <link rel="stylesheet" href="style.css" />
     <title>Document</title>
   </head>
@@ -13,22 +12,20 @@
     <main>
       <audio id="player1"></audio>
       <section id="playerSection1">
-        <div class="header">
-          <div class="timer__control">
-            <input type="number" class="timeInput" value="" placeholder="segundos">
-            <button class="toggle__timer">Go</button>
-          </div>
-  
-          <div>
-                <button class="cicle" data-cicle="preta">Preta</button>
-                <button class="cicle" data-cicle="azulAv">Azul Av</button>
-                <!-- <button class="cicle" data-cicle="azul">Azul</button>
-                <button class="cicle" data-cicle="branca">=> Branca</button> -->
+        <h2>Clique na Playlist do seu colar</h2>
+        <div>
+          <button class="cicle" id="preta" data-cicle="preta">preta</button>
+          <button class="cicle" id="azul-av" data-cicle="azulAv">Azul Av</button>
+          <button class="cicle" id="azul" data-cicle="azul">Azul</button>
+          <button class="cicle" id="branca" data-cicle="branca">Branca</button>
         </div>
+        
+        <div class="name-band">
+          <h3 class="musicName">Nome da musica</h3>
+          <p class="bandName">Banda</p>
         </div>
-      
-        <h3 class="musicName">Nome da musica</h3>
-        <p class="bandName">Banda</p>
+        
+
         <div class="volume">
           <i class="ph ph-speaker-none"></i>
           <input
@@ -56,12 +53,36 @@
           </div>
         </div>
 
+        <div class="header">
+          <div class="timer__control">
+            <h4>Alerta de Treino</h4>
+            <input type="number" id="input-alert" class="minutesInput" value="0" placeholder="minutos">
+            <input type="number" id="input-alert" class="secondsInput" value="" placeholder="segundos">
+            <button class="toggle__timer">Go</button>
+          </div>
+        </div>
+
         <!-- <button class="config__modal">Config</button> -->
 
-        <label for="musicSelect">Choose a music:</label>
+        <label for="musicSelect">Selecione a música:</label>
         <select id="musicSelect" class="musicSelect"></select>
-      </section>     
+      </section>   
+      
+      
+      <!-- <div class="modal">
+          <h2>Selecione as músicas</h2>
+          <div>
+            <label for="music1">Música Lenta</label>
+            <select id="music1"></select>
+          </div>
+          <div>
+            <label for="music2">Música Rápida</label>
+            <select id="music2"></select>
+          </div>
+          <button id="startPlayback">Iniciar Reprodução</button>
+      </div> -->
     </main>
- 
+
+    <script type="module" src="./script.js" defer></script>
   </body>
 </html>
