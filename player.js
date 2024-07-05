@@ -1,4 +1,3 @@
-
 export function initiPlayers(playerId, sectionId, songs) {
     const player = document.querySelector(`#${playerId}`);
     const section = document.querySelector(`#${sectionId}`);
@@ -108,46 +107,75 @@ export function initiPlayers(playerId, sectionId, songs) {
         });
     }
 
-    // function populateMusicOptions() {
-    //     const music1Select = document.getElementById('music1');
-    //     const music2select = document.getElementById('music2');
+    // function examTimer () {
+    //     const toggleTimeButton = document.querySelector('.toggle__time');
+    
+    //     const alertSoundUrl = 'src/agradeceu e trocou-girl.mp3';
+    
+    //     let timeInterval;
+    //     let isTimerActive = false;
+    
+    //     function startTimer() {
+    
+    //         const alertSound = new Audio(alertSoundUrl);
+    //         const countdownTime1 = 20000;
+    //         const countdownTime2 = 20000;
+    //         const delayTime = 3000;
 
-    //     music1Select.innerHTML = '';
-    //     music2select.innerHTML = '';
+    //                 if (!countdownTime1 || !countdownTime2) {
+    //                     console.log("Please set a valid timer.");
+    //                     return;
+    //                 }
+    
+    //                 function nextMusicAndAlert() {
+    //                     prevNextMusic('next');
+    //                     alertSound.currentTime = 0;
+    //                     alertSound.play();
+    //                     console.log("Alert sound init and music changed");
+    //                 }
 
-    //     songs.forEach((song, index) => {
-    //         const option1 = document.createElement('option');
-    //         option1.value = index;
-    //         option1.textContent = `${song.name}`;
-    //         music1Select.appendChild(option1);
-
-    //         const option2 = document.createElement('option');
-    //         option2.value = index;
-    //         option2.textContent = `${song.name}`;
-    //         music2select.appendChild(option2);
-    //     });
+    //                 function nextMusic() {
+    //                     prevNextMusic('next');
+    //                 }
+        
+    //                 // Primeiro timer
+    //                 setTimeout(() => {
+    //                     nextMusicAndAlert();
+    //                 }, delayTime);
+                
+        
+    //             // Primeiro timer
+    //             timeInterval = setTimeout(() => {
+    //                 nextMusicAndAlert();
+        
+    //                 // Segundo timer para a próxima música
+    //                 setTimeout(() => {
+    //                     nextMusicAndAlert();
+    //                 }, countdownTime2);
+        
+    //                 console.log("Timer started");
+    //             }, countdownTime1);
+    //     };
+    
+    //     function stopTimer() {
+    //         clearInterval(timeInterval);
+    //         console.log("stop");
+    //     }
+    
+    //     function toggleTimer() {
+    //         isTimerActive = !isTimerActive;
+    //         toggleTimeButton.textContent = isTimerActive ? 'Stop' : 'Go';
+    //         if (!isTimerActive) {
+    //             stopTimer();
+    //         } else {
+    //             startTimer();
+    //         }
+    //     };
+    
+    //     toggleTimeButton.onclick = () => toggleTimer();
     // }
 
-    // document.getElementById('startPlayback').addEventListener('click', function() {
-    //     const music1Index = document.getElementById('music1').valeu;
-    //     const music2Index = document.getElementById('music2').value;
-
-    //     const music1Time = 75 * 1000;
-    //     const music2Time = 150 * 1000;
-
-    //     playPauseMusic(songs[music1Index].src, music1Time);
-    //     setTimeout(() => {
-    //         playPauseMusic(songs[music2Index].src, music2Time);
-    //     }, music1Time);
-    // });
-
-    // function playMusic(songSrc, duration) {
-    //     console.log(`Reproduzindo ${songSrc} por ${duration / 1000} segundos.`);
-    // }
-
-    // playMusic();
-    // populateMusicOptions();
-
+    // examTimer();
 
     playPause.onclick = () => playPauseMusic();
     prev.onclick = () => prevNextMusic('prev');
@@ -159,5 +187,4 @@ export function initiPlayers(playerId, sectionId, songs) {
 
     populateMusicSelector();
     prevNextMusic("init");
-
 }

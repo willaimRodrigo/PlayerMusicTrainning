@@ -1,5 +1,3 @@
-
-
 export function alertTimer () {
     const toggleTimerButton = document.querySelector('.toggle__timer');
 
