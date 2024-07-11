@@ -8,16 +8,15 @@ export function alertTimer () {
 
     function startTimer() {
 
-                const alertSound = new Audio(alertSoundUrl);
-                const minutesInput = document.querySelector('.minutesInput').value;
-                const secondsInput = document.querySelector('.secondsInput').value;
-                const countdounwTime = (parseInt(minutesInput) * 60 + parseInt(secondsInput)) * 1000;
+            const alertSound = new Audio(alertSoundUrl);
+            const minutesInput = document.querySelector('.minutesInput').value;
+            const secondsInput = document.querySelector('.secondsInput').value;
+            const countdounwTime = (parseInt(minutesInput) * 60 + parseInt(secondsInput)) * 1000;
 
-                timeInterval = setInterval(() => {
-                    alertSound.currentTime = 0;
-                    alertSound.play();
-                    console.log("alert init");
-
+            timeInterval = setInterval(() => {
+                alertSound.currentTime = 0;
+                alertSound.play();
+                console.log("alert init");
         }, countdounwTime);
 
         console.log("init");
@@ -40,3 +39,5 @@ export function alertTimer () {
 
     toggleTimerButton.onclick = () => toggleTimer();
 }
+
+alertTimer();

@@ -107,80 +107,116 @@ export function initiPlayers(playerId, sectionId, songs) {
         });
     }
 
-    // function examTimer () {
-    //     const toggleTimeButton = document.querySelector('.toggle__time');
-    
-    //     const alertSoundUrl = 'src/agradeceu e trocou-girl.mp3';
-    
-    //     let timeInterval;
-    //     let isTimerActive = false;
-    
-    //     function startTimer() {
-    
-    //         const alertSound = new Audio(alertSoundUrl);
-    //         const countdownTime1 = 20000;
-    //         const countdownTime2 = 20000;
-    //         const delayTime = 3000;
+    let originalVolume =player.volume;
 
-    //                 if (!countdownTime1 || !countdownTime2) {
-    //                     console.log("Please set a valid timer.");
-    //                     return;
-    //                 }
-    
-    //                 function nextMusicAndAlert() {
-    //                     prevNextMusic('next');
-    //                     alertSound.currentTime = 0;
-    //                     alertSound.play();
-    //                     console.log("Alert sound init and music changed");
-    //                 }
+    function reduceVolume() {
+        const reduceVolumeTimer = setInterval(() => {
+            if (player.volume > 0.2) {
+                player.volume = Math.max(player.volume - 0.1, 0);
+            } else {
+                player.volume = 0.2;
+                clearInterval(reduceVolumeTimer);
+            }
+        }, 100);
+    }
 
-    //                 function nextMusic() {
-    //                     prevNextMusic('next');
-    //                 }
+    function restoreVolume() {
+        const restoreVolumePlayer = setInterval(() => {
+            if(player.volume < originalVolume) {
+                player.volume = Math.min(player.volume + 0.1, originalVolume);
+            } else {
+                player.volume = originalVolume;
+                clearInterval(restoreVolumePlayer);
+            }
+        }, 100);
+    }
+
+
+    function examTimer () {
+        const toggleTimeButton = document.querySelector('.toggle__time');
+        const alertSoundUrl = 'src/agradeceu e trocou-girl.mp3';
+    
+        let timeInterval;
+        let isTimerActive = false;
+   
+        function startTimer() {
+
+            const alertSound = new Audio(alertSoundUrl);
+
+            const countdounwTime = 75000;
+            const countdownTime1 = 90000;
+            const countdownTime2 = 150000;
         
-    //                 // Primeiro timer
-    //                 setTimeout(() => {
-    //                     nextMusicAndAlert();
-    //                 }, delayTime);
+
+            if (!countdownTime1 || !countdownTime2) {
+                console.log("Please set a valid timer.");
+                return;
+            }
+
+            function alertSoundExam () {
+                timeInterval = setTimeout(() => {
+                    reduceVolume();
+                    alertSound.currentTime = 0;
+                    alertSound.play();
+                    alertSound.onended = () => {
+                        restoreVolume();
+                    }
+                    console.log("alert init");
+                }, countdounwTime);
+            }
+        
+            timeInterval = setTimeout(() => {
+                reduceVolume();
                 
-        
-    //             // Primeiro timer
-    //             timeInterval = setTimeout(() => {
-    //                 nextMusicAndAlert();
-        
-    //                 // Segundo timer para a próxima música
-    //                 setTimeout(() => {
-    //                     nextMusicAndAlert();
-    //                 }, countdownTime2);
-        
-    //                 console.log("Timer started");
-    //             }, countdownTime1);
-    //     };
-    
-    //     function stopTimer() {
-    //         clearInterval(timeInterval);
-    //         console.log("stop");
-    //     }
-    
-    //     function toggleTimer() {
-    //         isTimerActive = !isTimerActive;
-    //         toggleTimeButton.textContent = isTimerActive ? 'Stop' : 'Go';
-    //         if (!isTimerActive) {
-    //             stopTimer();
-    //         } else {
-    //             startTimer();
-    //         }
-    //     };
-    
-    //     toggleTimeButton.onclick = () => toggleTimer();
-    // }
+                timeInterval = setTimeout(() => {
+                   playPauseMusic();
+                    restoreVolume(); 
 
-    // examTimer();
+                    timeInterval = setTimeout(() => {
+                    prevNextMusic();
+                    alertSoundExam();
+
+                        timeInterval = setTimeout(() => {
+                            reduceVolume();
+
+                            timeInterval = setTimeout(() => {
+                               playPauseMusic(); 
+                               restoreVolume();
+                            }, 1000);
+                            
+                        }, countdownTime2);
+
+                    }, 7000);
+                }, 1000);
+                
+                
+            }, countdownTime1);            
+        };
+    
+        function stopTimer() {
+            clearInterval(timeInterval);
+            console.log("stop");
+        }
+    
+        function toggleTimer() {
+            isTimerActive = !isTimerActive;
+            toggleTimeButton.textContent = isTimerActive ? 'Stop' : 'Go';
+            if (!isTimerActive) {
+                stopTimer();
+            } else {
+                startTimer();
+            }
+        };
+    
+        toggleTimeButton.onclick = () => toggleTimer();
+    }
+
+    examTimer();
 
     playPause.onclick = () => playPauseMusic();
     prev.onclick = () => prevNextMusic('prev');
     next.onclick = () => prevNextMusic();
-    setVolume(30);
+    setVolume(50);
     random.onclick = () => randomMusic();
     player.ontimeupdate = () => updateTime();
     player.onended = () => prevNextMusic('next');

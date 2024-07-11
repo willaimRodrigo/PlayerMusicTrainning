@@ -44,11 +44,11 @@ export const preta = [
         name: 'Espere por mim morena',
         band:'Caraivana',
     },
-    // {
-    //     src: './src/black/fastBlack/Cinco pra Xaxar.mp3',
-    //     name: 'Cinco pra Xaxar',
-    //     band:'Forró',
-    // },
+    {
+        src: './src/black/fastBlack/Cinco pra Xaxar.mp3',
+        name: 'Cinco pra Xaxar',
+        band:'Forró',
+    },
     {
         src: './src/black/slowBlack/Lisbela.mp3',
         name: 'Lisbela',
@@ -105,7 +105,7 @@ export const preta = [
         band: 'Buchicho',
     },
     {
-        src: './src/black/fastBlack/Pot-Pourri.mp3',
+        src: './src/black/fastBlack/Pout-Pourri.mp3',
         name: 'Pot-Pourri',
         band:'Fkávio José',
     },

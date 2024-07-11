@@ -95,6 +95,11 @@ export const azulAv = [
         band:'Cezinha',
     },
     {
+        src: './src/blueAv/fastAv2/Mensageiro de um Rei.mp3',
+        name: 'Mensageiro de um Rei',
+        band: 'Fenfit',
+    },
+    {
         src: './src/blueAv/slowAv2/Toc Toc.mp3',
         name: 'Toc Toc',
         band: 'Verso e Prosa',
