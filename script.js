@@ -1,5 +1,5 @@
 import { songsArrays, updateSongs } from "./songs.js";
-import { alertTimer } from "./timerAlert.js";
+// import { alertTimer } from "./timerAlert.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll('.cicle').forEach(button => {
@@ -11,4 +11,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-alertTimer();
+// alertTimer();

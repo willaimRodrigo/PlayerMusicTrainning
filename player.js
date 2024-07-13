@@ -1,3 +1,5 @@
+
+
 export function initiPlayers(playerId, sectionId, songs) {
     const player = document.querySelector(`#${playerId}`);
     const section = document.querySelector(`#${sectionId}`);
@@ -139,58 +141,106 @@ export function initiPlayers(playerId, sectionId, songs) {
         let timeInterval;
         let isTimerActive = false;
    
-        function startTimer() {
+    function startTimer() {
 
-            const alertSound = new Audio(alertSoundUrl);
+        const alertSound = new Audio(alertSoundUrl);
 
-            const countdounwTime = 75000;
-            const countdownTime1 = 90000;
-            const countdownTime2 = 150000;
+        const countdounwTime = 75000;
+        const countdownTime1 = 80000;
+        const countdownTime2 = 150000;
         
 
-            if (!countdownTime1 || !countdownTime2) {
-                console.log("Please set a valid timer.");
-                return;
-            }
+        if (!countdownTime1 || !countdownTime2) {
+            console.log("Please set a valid timer.");
+            return;
+        }
 
-            function alertSoundExam () {
-                timeInterval = setTimeout(() => {
-                    reduceVolume();
-                    alertSound.currentTime = 0;
-                    alertSound.play();
-                    alertSound.onended = () => {
-                        restoreVolume();
-                    }
-                    console.log("alert init");
-                }, countdounwTime);
+    function pauseRestoreVolume () {
+        timeInterval = setTimeout(() => {
+            playPauseMusic();
+            restoreVolume();
+        }, 1000);
+    }
+
+    function alertSoundExam () {
+        timeInterval = setTimeout(() => {
+            reduceVolume();
+            alertSound.currentTime = 0;
+            alertSound.play();
+            alertSound.onended = () => {
+                restoreVolume();
             }
-        
-            timeInterval = setTimeout(() => {
-                reduceVolume();
-                
+                console.log("alert init");
+            }, countdounwTime);
+        }
+            
+        timeInterval = setTimeout(() => {
+            reduceVolume(); 
+            pauseRestoreVolume();
+
                 timeInterval = setTimeout(() => {
-                   playPauseMusic();
-                    restoreVolume(); 
+                        prevNextMusic();
+                        alertSoundExam();
 
                     timeInterval = setTimeout(() => {
-                    prevNextMusic();
-                    alertSoundExam();
+                        reduceVolume();
+                        pauseRestoreVolume();
+                        toggleTimeButton.textContent = 'Go';
+                                                        
+                    }, countdownTime2);
 
-                        timeInterval = setTimeout(() => {
-                            reduceVolume();
-
-                            timeInterval = setTimeout(() => {
-                               playPauseMusic(); 
-                               restoreVolume();
-                            }, 1000);
-                            
-                        }, countdownTime2);
-
-                    }, 7000);
-                }, 1000);
-                
+                }, 7000);
                 
             }, countdownTime1);            
+        };
+        
+        function stopTimer() {
+            clearInterval(timeInterval);
+            console.log("stop");
+        }
+        
+        function toggleTimer() {
+            isTimerActive = !isTimerActive;
+            toggleTimeButton.textContent = isTimerActive ? 'Stop' : 'Go';
+                if (!isTimerActive) {
+                    stopTimer();
+                } else {
+                    startTimer();
+            }
+        };
+
+        toggleTimeButton.onclick = () => toggleTimer();
+    }
+
+    examTimer();
+
+
+    function alertTimer () {
+        const toggleTimerButton = document.querySelector('.toggle__timer');
+    
+        const alertSoundUrl = 'src/agradeceu e trocou-girl.mp3';
+    
+        let timeInterval;
+        let isTimerActive = false;
+    
+        function startTimer() {
+            const alertSound = new Audio(alertSoundUrl);
+            const minutesInput = document.querySelector('.minutesInput').value;
+            const secondsInput = document.querySelector('.secondsInput').value;
+            const countdounwTime = (parseInt(minutesInput) * 60 + parseInt(secondsInput)) * 1000;
+    
+            timeInterval = setTimeout(() => {
+                reduceVolume();
+                alertSound.currentTime = 0;
+                alertSound.play();
+                alertSound.onended = () => {
+                    restoreVolume();
+                }
+                   console.log("alert init");
+            }, countdounwTime);
+            
+    
+            console.log("init");
         };
     
         function stopTimer() {
@@ -200,7 +250,7 @@ export function initiPlayers(playerId, sectionId, songs) {
     
         function toggleTimer() {
             isTimerActive = !isTimerActive;
-            toggleTimeButton.textContent = isTimerActive ? 'Stop' : 'Go';
+            toggleTimerButton.textContent = isTimerActive ? 'Stop' : 'Go';
             if (!isTimerActive) {
                 stopTimer();
             } else {
@@ -208,15 +258,15 @@ export function initiPlayers(playerId, sectionId, songs) {
             }
         };
     
-        toggleTimeButton.onclick = () => toggleTimer();
+        toggleTimerButton.onclick = () => toggleTimer();
     }
-
-    examTimer();
+    
+    alertTimer();
 
     playPause.onclick = () => playPauseMusic();
     prev.onclick = () => prevNextMusic('prev');
     next.onclick = () => prevNextMusic();
-    setVolume(50);
+    setVolume(99);
     random.onclick = () => randomMusic();
     player.ontimeupdate = () => updateTime();
     player.onended = () => prevNextMusic('next');
@@ -224,3 +274,4 @@ export function initiPlayers(playerId, sectionId, songs) {
     populateMusicSelector();
     prevNextMusic("init");
 }
+
