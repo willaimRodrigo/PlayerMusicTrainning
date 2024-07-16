@@ -107,7 +107,8 @@ body {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    width: 320px;
+    min-width: 320px;
+    width: 80%;
     background: #8f8c8d;
     padding: 32px;
     border-radius: 8px;
@@ -239,7 +240,7 @@ h4{
 
 .cicle {
   font-weight: 600;
-  width: 47%;
+  width: 47.5%;
   height: 40px;
   border: 1px solid green;
   border-radius: 5px;
@@ -250,7 +251,7 @@ h4{
 #baile {
   font-size: 18px;
   font-weight: 600;
-  width: 100%;
+  width: 99%;
   height: 40px;
   border: 1px solid rgb(39, 48, 39);
   border-radius: 5px;

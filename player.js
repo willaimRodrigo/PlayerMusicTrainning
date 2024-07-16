@@ -1,5 +1,3 @@
-
-
 export function initiPlayers(playerId, sectionId, songs) {
     const player = document.querySelector(`#${playerId}`);
     const section = document.querySelector(`#${sectionId}`);
@@ -22,7 +20,6 @@ export function initiPlayers(playerId, sectionId, songs) {
     const textButtonPause = "<i class='ph ph-pause'></i>";
 
     let index = 0;
-    
 
     function playPauseMusic(){
         if(player.paused){
@@ -133,7 +130,7 @@ export function initiPlayers(playerId, sectionId, songs) {
         }, 100);
     }
 
-
+    // Alerta com contador com função para mudar a música
     function examTimer () {
         const toggleTimeButton = document.querySelector('.toggle__time');
         const alertSoundUrl = 'src/agradeceu e trocou-girl.mp3';
@@ -162,6 +159,7 @@ export function initiPlayers(playerId, sectionId, songs) {
         }, 1000);
     }
 
+    
     function alertSoundExam () {
         timeInterval = setTimeout(() => {
             reduceVolume();
@@ -214,7 +212,7 @@ export function initiPlayers(playerId, sectionId, songs) {
 
     examTimer();
 
-
+    // Alerta sonoro independente de música
     function alertTimer () {
         const toggleTimerButton = document.querySelector('.toggle__timer');
     
@@ -274,4 +272,3 @@ export function initiPlayers(playerId, sectionId, songs) {
     populateMusicSelector();
     prevNextMusic("init");
 }
-

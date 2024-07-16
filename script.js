@@ -1,5 +1,4 @@
 import { songsArrays, updateSongs } from "./songs.js";
-// import { alertTimer } from "./timerAlert.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll('.cicle').forEach(button => {
@@ -9,6 +8,9 @@ document.addEventListener("DOMContentLoaded", () => {
             updateSongs(selectedSongs);
         });
     });
-});
 
-// alertTimer();
+    const musicLoad = document.querySelector('.cicle');
+        if(musicLoad) {
+        musicLoad.click();
+}
+});
