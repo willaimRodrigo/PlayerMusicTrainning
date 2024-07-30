@@ -261,6 +261,8 @@ export function initiPlayers(playerId, sectionId, songs) {
     
     alertTimer();
 
+
+
     playPause.onclick = () => playPauseMusic();
     prev.onclick = () => prevNextMusic('prev');
     next.onclick = () => prevNextMusic();
