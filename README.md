@@ -2,7 +2,7 @@
 
 Bem vindo ao player de música dinâmico.
 
-<a>player-music-trainning.vercel.app</a>
+<a href"player-music-trainning.vercel.app">visite nossa aplicação</a>
 
 Este projeto permite carregar e reproduzir músicas de diferentes playlists. Ele inclui funcionalidades como reprodução aleatória, ajuste de volume e timers para alertas sonoros.
 
