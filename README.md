@@ -2,6 +2,8 @@
 
 Bem vindo ao player de música dinâmico.
 
+<a href"player-music-trainning.vercel.app"></a>
+
 Este projeto permite carregar e reproduzir músicas de diferentes playlists. Ele inclui funcionalidades como reprodução aleatória, ajuste de volume e timers para alertas sonoros.
 
 Essa aplicação foi pensada para uso especifíco de treino de dança e exame de nível de dança (especifico para forró).
