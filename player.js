@@ -72,13 +72,24 @@ export function initiPlayers(playerId, sectionId, songs) {
         setVolume(volumeSlider.value);
     });
 
-    function randomMusic() {
-        let randomIndex = Math.floor(Math.random() * songs.length);
-        index = randomIndex;
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
 
-        player.src = songs[index].src;
-        nameMusic.innerHTML = songs[index].name;
-        bandName.innerHTML = songs[index].band;
+        return array;
+    }
+
+    function randomMusic() {
+        // let randomIndex = Math.floor(Math.random() * songs.length);
+
+        let shuffleSongs = shuffleArray([...songs]);
+        index = 0;
+
+        player.src = shuffleSongs[index].src;
+        nameMusic.innerHTML = shuffleSongs[index].name;
+        bandName.innerHTML = shuffleSongs[index].band;
 
         playPauseMusic();
     }
@@ -227,7 +238,7 @@ export function initiPlayers(playerId, sectionId, songs) {
             const secondsInput = document.querySelector('.secondsInput').value;
             const countdounwTime = (parseInt(minutesInput) * 60 + parseInt(secondsInput)) * 1000;
     
-            timeInterval = setTimeout(() => {
+            timeInterval = setInterval(() => {
                 reduceVolume();
                 alertSound.currentTime = 0;
                 alertSound.play();
@@ -258,10 +269,10 @@ export function initiPlayers(playerId, sectionId, songs) {
     
         toggleTimerButton.onclick = () => toggleTimer();
     }
+
     
+
     alertTimer();
-
-
 
     playPause.onclick = () => playPauseMusic();
     prev.onclick = () => prevNextMusic('prev');
@@ -274,3 +285,5 @@ export function initiPlayers(playerId, sectionId, songs) {
     populateMusicSelector();
     prevNextMusic("init");
 }
+
+

@@ -6,12 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="stylesheet" href="style.css" />
+    <script type="module" src="./script.js" defer></script>
     <title>Document</title>
   </head>
   <body>
     <main>
       <audio id="player1"></audio>
       <section id="playerSection1">
+
         <h2>Clique na Playlist do seu colar</h2>
 
         <div>
@@ -19,12 +21,17 @@
         </div>
 
         <div class="options">
+          <button class="cicle" id="pre" data-cicle="pre">Pré-inzame</button>
           <button class="cicle" id="preta" data-cicle="preta">Preta</button>
           <button class="cicle" id="azul-av" data-cicle="azulAv">Azul Av</button>
           <button class="cicle" id="azul" data-cicle="azul">Azul</button>
           <button class="cicle" id="branca" data-cicle="branca">Branca</button>
           
         </div>
+        
+
+        <label for="musicSelect">Selecione a música:</label>
+        <select id="musicSelect" class="musicSelect"></select>
        
         <div class="name-band">
           <h3 class="musicName">Nome da musica</h3>
@@ -63,30 +70,48 @@
           </div>
         </div>
 
+        <div class="about">
+          <p><span>Sobre esse app:</span>Ele funciona coma função simples de clicar na playlist que quiser, logo carregará as músicas no select e você pode escoler a que quiser. Temos duas modalidades de treino, a primeira função apenas com alerta, onde voce programa um tempo e o alerta tocará enquanto rolar as músicas, ele ativa e desativa no próprio botão (Go/Stop) e a segunda modalidade é exame, onde você escolhe uma música lenta, clica no play e logo após clica em (Go) para iniciar a simulçao de exame, onde tocará uma lenta e uma rápida com alerta sonoro.</p>
+        </div>
+
         <div class="header">
-          <div class="timer__control">
-            <h4>Alerta de Treino</h4>
+          <div class="timer_controls">
+            <div class="timer_control">
+              <h4>Alerta de Treino</h4>
+            
             <input type="number" id="input-alert" class="minutesInput" value="1" placeholder="minutos">
             <p>:</p>
             <input type="number" id="input-alert" class="secondsInput" value="15" placeholder="segundos">
             <button class="toggle__timer">Go</button>
+            </div>
+            
+            <div>
+              <p>clique aqui para treino livre apenas com alerta sonoro</p>
+            </div>
+            
           </div>
         </div>
 
-        <label for="musicSelect">Selecione a música:</label>
-        <select id="musicSelect" class="musicSelect"></select>
-
+        
         <div class="header">
+
+          <h5>Use uma função por vez!</h5>
           <div class="timer__control">
             <h4 class="exam-black">Timer Exame Azul AV/Preta</h4>
+            <p>Clique em uma música lenta e após, clique em GO.</p>
             <button class="toggle__time">Go</button>
+            
           </div>
         </div>
-      </section>   
+
+        
+
+        <div id="videoLinksContainer"></div>
+      </section> 
       
       <p>App em construção, sujeito a alterações a qualquer momento!</p>
     </main>
 
-    <script type="module" src="./script.js" defer></script>
+    
   </body>
 </html>
